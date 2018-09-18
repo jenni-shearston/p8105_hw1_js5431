@@ -5,18 +5,22 @@ date: "September 13, 2018"
 output: github_document
 ---
 
+```{r set_up}
+library(tidyverse)
+```
+
 ####Problem 1
 
 Creating a random sample variable
 
 ```{r}
-random_sample = rnorm(10, 0, 5)
+ran_sam = rnorm(10, 0, 5)
 ```
 
 Creating a logical vector
 
 ```{r}
-bigger2 = random_sample > 2
+bigger2 = ran_sam > 2
 ```
 
 Creating a character vector
@@ -28,7 +32,23 @@ animal = c("fish", "dog", "cat", "dolphin", "elephant", "dog", "cow", "fish", "f
 Creating a factor vector
 
 ```{r}
-animal_factor = factor(animal)
+animal_f = factor(animal)
 ```
+
+Creating a data frame comprised of the above four vectors
+
+```{r}
+p1_df = data.frame(ran_sam, bigger2, animal, animal_f)
+```
+
+Taking the mean of each variable in the data frame
+
+```{r}
+mean(ran_sam)
+mean(bigger2)
+```
+
+*Notes: I am able to take the mean of the ran_sam (random sample variable) and bigger2 (logical vector) variables becuase they are both numeric, but not the animal or animal_f variables becuase they are character vectors.*
+
 
 ####Problem 2
