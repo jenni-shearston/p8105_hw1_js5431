@@ -74,3 +74,26 @@ as.numeric(animal_f)
 
 
 ####Problem 2
+
+Creating the described dataframe
+
+```{r data frame to graph}
+x = rnorm(1000)
+y = rnorm(1000)
+logical = (x+y) > 0
+logical_n = as.numeric(logical)
+logical_f = factor(logical_n)
+
+graphing_df = data.frame(x, y, logical, logical_n, logical_f)
+```
+
+
+
+Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
+
+
+####Problem 3
+
+Done! js5431 on 9/18/2018
+:)
+
