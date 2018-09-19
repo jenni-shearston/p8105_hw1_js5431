@@ -120,7 +120,7 @@ ggplot(graphing_df, aes(x = x, y = y, color = logical)) + geom_point()
 ggplot(graphing_df, aes(x = x, y = y, color = logical_n)) + geom_point()
 ```
 
-####Scatteplot 3
+####Scatterplot 3
 
 ```{r}
 ggplot(graphing_df, aes(x = x, y = y, color = logical_f)) + geom_point()
@@ -128,12 +128,15 @@ ggplot(graphing_df, aes(x = x, y = y, color = logical_f)) + geom_point()
 
 ####Commenting on plot colors
 
-In Scatterplot 1, 
+In Scatterplot 1, the color scale is dichotomous (true/false) because the logical variable only has two categories. However, for Scatterplot 2, the color scale is a gradient because the variable type is numeric, so instead the colors are assigned based on quartiles. Scatterplot 3 uses a binary color scale similar to Scatterplot 1, because the variable used is a factor variable and also has only two categories (this time 0/1).
 
 ####Exporting Scatterplot 1
 
+```{r, include = FALSE}
+ggplot(graphing_df, aes(x = x, y = y, color = logical)) + geom_point()
+```
 ```{r}
-
+ggsave("scatter_plot.pdf", height = 4, width = 6)
 ```
 
 
