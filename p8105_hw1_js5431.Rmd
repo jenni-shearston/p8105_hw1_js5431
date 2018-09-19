@@ -2,7 +2,9 @@
 title: "p8105_hw1_js5431"
 author: "J Shearston"
 date: "September 13, 2018"
-output: github_document
+output: 
+  github_document:
+    toc: true
 ---
 
 ```{r set_up, include = FALSE}
@@ -51,8 +53,8 @@ p1_df = tibble(
 ####Taking the mean of each variable in the data frame
 
 ```{r}
-mean(ran_sam)
-mean(bigger2)
+mean(p1_df$ran_sam)
+mean(p1_df$bigger2)
 ```
 
 Notes: I am able to take the mean of the ran_sam (random sample variable) and bigger2 (logical vector) variables becuase they are both numeric, but not the animal or animal_f variables becuase they are character vectors.
@@ -60,9 +62,9 @@ Notes: I am able to take the mean of the ran_sam (random sample variable) and bi
 ####Applying the `as.numeric` function
 
 ```{r, eval = FALSE}
-as.numeric(bigger2)
-as.numeric(animal)
-as.numeric(animal_f)
+as.numeric(p1_df$bigger2)
+as.numeric(p1_df$animal)
+as.numeric(p1_df$animal_f)
 ```
 
 Notes: The logical and factor variables can be coerced, while using the `as.numeric` function on the character variable results in NA for each observation. This occurs because the logical and factor variable both already have a numeric component of some type, while the character variable does not.
@@ -70,11 +72,11 @@ Notes: The logical and factor variables can be coerced, while using the `as.nume
 ####Converting variable types
 
 ```{r}
-factor(animal)
-as.numeric(animal)
+factor(p1_df$animal)
+as.numeric(p1_df$animal)
 
-as.character(animal_f)
-as.numeric(animal_f)
+as.character(p1_df$animal_f)
+as.numeric(p1_df$animal_f)
 ```
 
 Notes: When the character variable is converted to a factor variable it is given levls, but when it is then converted to a numeric variable NA results. When the factor variable is converted to a character variable this seems to go smoothly, and can then also be transferred into a numeric variable such that each unique category in the variable is assigned a number
@@ -100,13 +102,43 @@ graphing_df = tibble(
   )
 ```
 
-Notes: The dataframe called "graphing_df" has a size of n=''
+####Describing the dataset
 
-Write a short description of your vector using inline R code, including: * the size of the dataset * the mean and median of x * the proportion of cases for which the logical vector is TRUE
+The dataframe called "graphing_df" has a size of n=`r nrow(graphing_df)`.
+The mean of x is `r mean(graphing_df$x)`, while the median is `r median(graphing_df$x)`.
+The proportion of cases for which the logical vector "logical" is TRUE is `r table(logical_f)["1"]` / 1000.
+
+####Scatterplot 1
+
+```{r}
+ggplot(graphing_df, aes(x = x, y = y, color = logical)) + geom_point()
+```
+
+####Scatterplot 2
+
+```{r}
+ggplot(graphing_df, aes(x = x, y = y, color = logical_n)) + geom_point()
+```
+
+####Scatteplot 3
+
+```{r}
+ggplot(graphing_df, aes(x = x, y = y, color = logical_f)) + geom_point()
+```
+
+####Commenting on plot colors
+
+In Scatterplot 1, 
+
+####Exporting Scatterplot 1
+
+```{r}
+
+```
 
 
 ##Problem 3
 
 Done! js5431 on 9/18/2018
-:)
+  :)
 
