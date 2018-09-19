@@ -5,7 +5,7 @@ date: "September 13, 2018"
 output: github_document
 ---
 
-```{r set_up}
+```{r set_up, include = FALSE}
 library(tidyverse)
 ```
 
@@ -49,6 +49,28 @@ mean(bigger2)
 ```
 
 *Notes: I am able to take the mean of the ran_sam (random sample variable) and bigger2 (logical vector) variables becuase they are both numeric, but not the animal or animal_f variables becuase they are character vectors.*
+
+Applying the `as.numeric` function
+
+```{r, eval = FALSE}
+as.numeric(bigger2)
+as.numeric(animal)
+as.numeric(animal_f)
+```
+
+*Notes: The logical and factor variables can be coerced, while using the `as.numeric` function on the character variable results in NA for each observation. This occurs because the logical and factor variable both already have a numeric component of some type, while the character variable does not.*
+
+Converting character variable from character to factor to numeric; converting factor variable from factor to character to numeric.
+
+```{r}
+factor(animal)
+as.numeric(animal)
+
+as.character(animal_f)
+as.numeric(animal_f)
+```
+
+*Notes: When the character variable is converted to a factor variable it is given levls, but when it is then converted to a numeric variable NA results. When the factor variable is converted to a character variable this seems to go smoothly, and can then also be transferred into a numeric variable such that each unique category in the variable is assigned a number*
 
 
 ####Problem 2
